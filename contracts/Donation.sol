@@ -31,7 +31,7 @@ contract Donation {
 	}
 	
 	function donate(uint _candidateId, uint _donationAmount) public payable {
-		// require (!voters[msg.sender]);
+		require (!voters[msg.sender]);
 		require(_candidateId > 0 && _candidateId <= candidatesCount);
 		voters[msg.sender] = true;
 		candidates[_candidateId].amount += _donationAmount;
